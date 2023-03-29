@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flip</title>
+    <style>
+        body
+        { 
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        #card
+        {
+            display: flex;
+            justify-content: center;
+            transform-style: preserve-3d;
+            transition: all .5s;
+        }        
+        .face
+        {
+            width: 100px;
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: gray;
+            position: absolute;
+            border-radius: 10px;
+        }
+        #front
+        {
+            background-color: aqua;
+            transform: rotateY(180deg);
+        }
+        #back
+        {
+            background-color: aquamarine;
+            backface-visibility: hidden;
+        }
+        .flip
+        {
+            transform: rotateY(180deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="flip" id="card">
+        <div class="face" id="front">
+            FRONT
+        </div>
+        <div class="face" id="back">
+            BACK
+        </div>
+    </div>
+    <script>
+        const carta = document.querySelector("#card")
+        carta.addEventListener("click",(e)=>{
+            carta.classList.toggle("flip")
+        })
+    </script>
+</body>
+</html>
